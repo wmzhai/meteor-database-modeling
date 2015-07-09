@@ -1,2 +1,1 @@
-# meteor-database-modeling
-Meteor数据库建模
+# Meteor数据库建模
