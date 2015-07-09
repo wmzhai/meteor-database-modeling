@@ -38,6 +38,18 @@
 
 通过上述数据库和索引，就很容易根据年龄和国家来进行检索。
 
+## Mongodb和索引
+
+Mongodb的索引策略比较类似上述内容，在MongoDB里，可以为单一的字段建立索引，也可以为多个字段建立一个联合索引(compound index)。更复杂地，可以为数组和内嵌文档建立索引。
+
+下面是在mongo shell里面为posts这个库建立索引的方法
+
+    db.posts.ensureIndex({category: 1});  //普通单个索引
+    db.posts.ensureIndex({'owner.email': 1});  //内嵌索引，nested field index
+    db.posts.ensureIndex({comments: 1});  // 数组索引，comments is an array
+
+需要说明的是，ensureIndex语句可以执行多遍，他只是在没有这个索引的时候才会尝试去创建。
+
 
 
 
